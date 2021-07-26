@@ -5,17 +5,17 @@ interface LocaleFunctionProps {
     label: string;
     [name: string]: any;
 }
-interface OtherProps extends LocaleFunctionProps {
+interface OverrideProps extends LocaleFunctionProps {
     hasNodes?: boolean;
 }
-interface MatchSearchFunctionProps extends OtherProps {
+interface MatchSearchFunctionProps extends OverrideProps {
     searchTerm: string;
 }
-export interface TreeNode extends OtherProps {
+export interface TreeNode extends OverrideProps {
     index: number;
     nodes?: TreeNodeObject;
 }
-export interface TreeNodeInArray extends OtherProps {
+export interface TreeNodeInArray extends OverrideProps {
     key: string;
     nodes?: TreeNodeInArray[];
 }

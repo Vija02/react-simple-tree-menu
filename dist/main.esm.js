@@ -383,13 +383,13 @@ var generateBranch = function generateBranch(_a) {
   var nodes = node.nodes,
       _d = node.label,
       rawLabel = _d === void 0 ? 'unknown' : _d,
-      userHasNodes = node.hasNodes,
+      nodeHasNodes = node.hasNodes,
       nodeProps = __rest(node, ["nodes", "label", "hasNodes"]);
 
   var key = [parent, nodeName].filter(function (x) {
     return x;
   }).join('/');
-  var hasNodes = userHasNodes || validateData(nodes);
+  var hasNodes = nodeHasNodes || validateData(nodes);
   var isOpen = hasNodes && (openNodes.includes(key) || !!searchTerm);
   var label = locale(__assign({
     label: rawLabel
