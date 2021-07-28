@@ -653,16 +653,14 @@ function (_super) {
     };
 
     _this.toggleNode = function (node) {
-      if (!_this.props.openNodes) {
-        var openNodes = _this.state.openNodes;
-        var newOpenNodes = openNodes.includes(node) ? openNodes.filter(function (openNode) {
-          return openNode !== node;
-        }) : __spreadArrays(openNodes, [node]);
+      var openNodes = _this.state.openNodes;
+      var newOpenNodes = openNodes.includes(node) ? openNodes.filter(function (openNode) {
+        return openNode !== node;
+      }) : __spreadArrays(openNodes, [node]);
 
-        _this.setState({
-          openNodes: newOpenNodes
-        });
-      }
+      _this.setState({
+        openNodes: newOpenNodes
+      });
     };
 
     _this.generateItems = function () {
