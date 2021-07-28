@@ -20,6 +20,9 @@ export declare type TreeMenuProps = {
     locale?: LocaleFunction;
     matchSearch?: MatchSearchFunction;
     disableKeyboard?: boolean;
+    onOpenNodesChange: (openNodes: string[]) => void;
+    onActiveKeyChange: (activeKey: string) => void;
+    onFocusKeyChange: (focusKey: string) => void;
 };
 declare type TreeMenuState = {
     openNodes: string[];
@@ -30,7 +33,7 @@ declare type TreeMenuState = {
 declare class TreeMenu extends React.Component<TreeMenuProps, TreeMenuState> {
     static defaultProps: TreeMenuProps;
     state: TreeMenuState;
-    componentDidUpdate(prevProps: TreeMenuProps): void;
+    componentDidUpdate(prevProps: TreeMenuProps, prevState: TreeMenuState): void;
     resetOpenNodes: (newOpenNodes?: string[] | undefined, activeKey?: string | undefined, focusKey?: string | undefined) => void;
     search: (value: string) => void;
     toggleNode: (node: string) => void;

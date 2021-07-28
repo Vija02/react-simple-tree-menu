@@ -783,7 +783,7 @@ function (_super) {
     return _this;
   }
 
-  TreeMenu.prototype.componentDidUpdate = function (prevProps) {
+  TreeMenu.prototype.componentDidUpdate = function (prevProps, prevState) {
     var _a = this.props,
         data = _a.data,
         initialOpenNodes = _a.initialOpenNodes,
@@ -793,6 +793,18 @@ function (_super) {
       this.setState({
         openNodes: initialOpenNodes
       });
+    }
+
+    if (prevState.openNodes !== this.state.openNodes) {
+      this.props.onOpenNodesChange(this.state.openNodes);
+    }
+
+    if (prevState.activeKey !== this.state.activeKey) {
+      this.props.onActiveKeyChange(this.state.activeKey);
+    }
+
+    if (prevState.focusKey !== this.state.focusKey) {
+      this.props.onFocusKeyChange(this.state.focusKey);
     }
   };
 
@@ -826,7 +838,10 @@ function (_super) {
     hasSearch: true,
     cacheSearch: true,
     resetOpenNodesOnDataUpdate: false,
-    disableKeyboard: false
+    disableKeyboard: false,
+    onOpenNodesChange: function onOpenNodesChange() {},
+    onActiveKeyChange: function onActiveKeyChange() {},
+    onFocusKeyChange: function onFocusKeyChange() {}
   };
   return TreeMenu;
 }(React.Component);
