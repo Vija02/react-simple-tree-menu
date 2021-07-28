@@ -653,7 +653,7 @@ function (_super) {
     };
 
     _this.toggleNode = function (node) {
-      var openNodes = _this.state.openNodes;
+      var openNodes = _this.props.openNodes || _this.state.openNodes;
       var newOpenNodes = openNodes.includes(node) ? openNodes.filter(function (openNode) {
         return openNode !== node;
       }) : __spreadArrays(openNodes, [node]);
